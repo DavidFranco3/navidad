@@ -1,0 +1,59 @@
+// SCSS Modules (Modular Architecture)
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'garland';
+@use 'envelope';
+@use 'tree';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: #080f0b;
+  color: #e8ece9;
+  overflow-x: hidden;
+}
+
+// Editorial Typography Utility
+.font-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+// Subtle Fine Glass Panel
+.quiet-card {
+  @include quiet-card(0.45, rgba(222, 184, 105, 0.14));
+  border-radius: 12px;
+}
+
+.button-antique {
+  @include antique-gold-button;
+  border-radius: 8px;
+}
+
+// Subtle Hairline Divider
+.fine-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(222, 184, 105, 0.25) 50%, transparent 100%);
+}
+
+// Refined Scrollbar
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080f0b;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c3325;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b88d3d;
+}

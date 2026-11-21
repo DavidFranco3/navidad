@@ -1,0 +1,126 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Refined Letterpress Stationery & Envelope
+.stationery-scene {
+  perspective: 1400px;
+}
+
+.wax-envelope {
+  position: relative;
+  width: 100%;
+  max-width: 490px;
+  min-height: 380px;
+  margin: 0 auto;
+
+  .envelope-pocket {
+    position: relative;
+    width: 100%;
+    height: 290px;
+    background: linear-gradient(155deg, #5c0f14 0%, #3d070b 100%);
+    border-radius: 6px;
+    box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.75), inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+    overflow: visible;
+  }
+
+  // Triangular Flap
+  .envelope-top-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 146px;
+    transform-origin: top center;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 25;
+    cursor: pointer;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.45));
+    }
+
+    &.open {
+      transform: rotateX(180deg);
+      z-index: 5;
+    }
+  }
+
+  // Deckle Edge Letter
+  .letterpress-card {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    @include deckle-paper;
+    border-radius: 4px;
+    padding: 2rem 2.25rem;
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.65s ease;
+    z-index: 10;
+
+    &.unfolded {
+      transform: translateY(-90px);
+      box-shadow: 0 28px 60px -15px rgba(0, 0, 0, 0.65);
+      z-index: 30;
+    }
+
+    // Classic engraved postal stamp
+    .vintage-stamp {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 54px;
+      height: 64px;
+      border: 1.5px dashed #8b252b;
+      background: #faf6f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      transform: rotate(3deg);
+
+      .stamp-inner {
+        width: 44px;
+        height: 54px;
+        border: 1px solid rgba(139, 37, 43, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Realist Wax Seal with Antique Seal Monogram
+  .authentic-seal {
+    position: absolute;
+    top: 114px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46px;
+    height: 46px;
+    background: radial-gradient(circle at 35% 35%, #94171d, #520b0e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.25);
+    z-index: 26;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover {
+      transform: translateX(-50%) scale(1.08);
+    }
+
+    .seal-monogram {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 20px;
+      color: #dfba67;
+      text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8), 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+  }
+}

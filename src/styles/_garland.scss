@@ -1,0 +1,173 @@
+@use 'variables' as *;
+
+// Vintage Incandescent Fairy Lights Garland
+.vintage-garland {
+  position: relative;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 16px;
+  overflow: hidden;
+
+  .garland-cord {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 38px;
+    pointer-events: none;
+    z-index: 1;
+
+    path {
+      stroke: #16241a;
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      fill: none;
+      filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6));
+    }
+  }
+
+  .lights-track {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  .vintage-bulb-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transform-origin: top center;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    &:hover {
+      transform: scale(1.15) rotate(4deg);
+    }
+
+    // Brass Socket
+    .socket {
+      width: 7px;
+      height: 9px;
+      background: linear-gradient(180deg, #574116 0%, #876527 60%, #453410 100%);
+      border-radius: 1px;
+      border: 1px solid rgba(255, 215, 120, 0.25);
+      position: relative;
+      z-index: 2;
+    }
+
+    // Teardrop Glass Bulb
+    .glass-envelope {
+      width: 15px;
+      height: 22px;
+      border-radius: 50% 50% 50% 50% / 35% 35% 65% 65%;
+      margin-top: -1px;
+      position: relative;
+      transition: all 0.35s ease;
+
+      // Internal glowing filament
+      .filament {
+        position: absolute;
+        top: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 8px;
+        border: 1px solid rgba(255, 245, 200, 0.9);
+        border-radius: 2px 2px 0 0;
+        opacity: 0.9;
+      }
+
+      // Specular highlight
+      &::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 2px;
+        width: 4px;
+        height: 7px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 50%;
+        transform: rotate(-30deg);
+      }
+    }
+
+    // Natural Color Variations (Warm White, Amber Candle, Cranberry, Pine Emerald)
+    &.bulb-warm-white .glass-envelope {
+      background: radial-gradient(circle at 45% 45%, #fffef0 0%, #fae8b2 60%, #e2be67 100%);
+      box-shadow: 0 0 16px rgba(250, 232, 178, 0.65), 0 0 30px rgba(250, 232, 178, 0.25);
+      &.off {
+        background: #2b251a;
+        box-shadow: none;
+        opacity: 0.4;
+        .filament { opacity: 0.2; }
+      }
+    }
+
+    &.bulb-amber .glass-envelope {
+      background: radial-gradient(circle at 45% 45%, #fff2d1 0%, #f5b74f 60%, #b86f18 100%);
+      box-shadow: 0 0 16px rgba(245, 183, 79, 0.65), 0 0 30px rgba(245, 183, 79, 0.25);
+      &.off {
+        background: #332210;
+        box-shadow: none;
+        opacity: 0.4;
+        .filament { opacity: 0.2; }
+      }
+    }
+
+    &.bulb-cranberry .glass-envelope {
+      background: radial-gradient(circle at 45% 45%, #ffd4d6 0%, #c42732 60%, #630c12 100%);
+      box-shadow: 0 0 16px rgba(196, 39, 50, 0.6), 0 0 28px rgba(196, 39, 50, 0.2);
+      &.off {
+        background: #330d10;
+        box-shadow: none;
+        opacity: 0.4;
+        .filament { opacity: 0.2; }
+      }
+    }
+
+    &.bulb-emerald .glass-envelope {
+      background: radial-gradient(circle at 45% 45%, #e0faec 0%, #29935d 60%, #0d4226 100%);
+      box-shadow: 0 0 16px rgba(41, 147, 93, 0.6), 0 0 28px rgba(41, 147, 93, 0.2);
+      &.off {
+        background: #0f271a;
+        box-shadow: none;
+        opacity: 0.4;
+        .filament { opacity: 0.2; }
+      }
+    }
+
+    &.flicker {
+      animation: vintageFlicker 3.2s infinite ease-in-out;
+    }
+    &:nth-child(2n).flicker {
+      animation-delay: 0.7s;
+    }
+    &:nth-child(3n).flicker {
+      animation-delay: 1.5s;
+    }
+    &:nth-child(5n).flicker {
+      animation-delay: 2.2s;
+    }
+  }
+}
+
+@keyframes vintageFlicker {
+  0%, 100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  32% {
+    opacity: 0.95;
+    filter: brightness(1.05);
+  }
+  64% {
+    opacity: 0.75;
+    filter: brightness(0.85);
+  }
+  78% {
+    opacity: 0.98;
+    filter: brightness(1.1);
+  }
+}

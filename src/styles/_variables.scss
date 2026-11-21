@@ -1,0 +1,26 @@
+// Refined Holiday Palette: Pine, Velvet Crimson, Antique Brass & Parchment
+$pine-dark: #070e0a;
+$pine-deep: #0c1c14;
+$pine-forest: #162f22;
+$pine-accent: #234834;
+
+$crimson-deep: #460c10;
+$crimson-velvet: #78141b;
+$crimson-bright: #a11d25;
+
+$brass-dark: #78581f;
+$brass-mid: #b88d3d;
+$brass-gold: #cfa856;
+$brass-light: #eed79e;
+
+$parchment-cream: #f7f4ed;
+$parchment-border: #dcd4c3;
+$ink-charcoal: #232220;
+
+// Refined Lighting & Shadows (Natural tungsten & candlelight, not neon LEDs)
+$glow-candle: 0 0 16px rgba(238, 183, 77, 0.45), 0 0 35px rgba(238, 183, 77, 0.2);
+$glow-crimson: 0 0 16px rgba(161, 29, 37, 0.45), 0 0 30px rgba(161, 29, 37, 0.2);
+$glow-frost: 0 0 14px rgba(220, 240, 255, 0.35);
+
+$shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+$shadow-deep: 0 20px 45px -12px rgba(0, 0, 0, 0.7);

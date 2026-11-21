@@ -1,0 +1,43 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// Refined Hairline Glass & Stationery Mixins
+@mixin quiet-card($opacity: 0.5, $border-color: rgba(222, 184, 105, 0.12)) {
+  background: rgba(12, 28, 20, $opacity);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid $border-color;
+  box-shadow: 0 12px 36px rgba(3, 7, 5, 0.6);
+}
+
+@mixin antique-gold-button {
+  position: relative;
+  background: linear-gradient(135deg, $brass-gold, $brass-dark);
+  color: #110d05;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(255, 235, 180, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: linear-gradient(135deg, color.adjust($brass-gold, $lightness: 5%), $brass-mid);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(197, 155, 72, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@mixin deckle-paper {
+  background-color: $parchment-cream;
+  background-image: 
+    radial-gradient(rgba(180, 160, 130, 0.12) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(235, 227, 212, 0.6) 100%);
+  background-size: 14px 14px, 100% 100%;
+  color: $ink-charcoal;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 1px 3px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(180, 165, 140, 0.4);
+}
